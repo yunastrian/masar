@@ -13,12 +13,6 @@ const config = Platform.select({
   default: {},
 });
 
-const CategoryStack = createStackNavigator(
-  {
-      
-  }
-)
-
 const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,

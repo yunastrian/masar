@@ -1,9 +1,8 @@
 import React from 'react';
-import { Icon } from 'expo';
 import {
   StyleSheet,
   Text,
-  View,
+  Image,
   TouchableHighlight
 } from 'react-native';
 import Colors from '../constants/Colors';
@@ -15,19 +14,11 @@ export class BarMenuButton extends React.Component {
         onPress={()=>{}}
       >
         <View style={styles.containerButton}>
-          <Icon.Ionicons 
-            name={this.props.iconName}
-            style={styles.menuIcon}
+          <Image
+            source={require(this.props.imageUri)}
+            style={styles.menuImage}
           />
-          <View style={styles.containerText}>
-            <Text style={styles.titleText}>{this.props.title}</Text>
-            <Text style={styles.descriptionText}>{this.props.description}</Text>
-          </View>
-          <Icon.Ionicons
-            name='arrow-dropdown-circle'
-            size={15}
-            style={styles.dropdownIcon}
-          />
+          <Text style={styles.titleText}>{this.props.title}</Text>
         </View>
       </TouchableHighlight>
     );
@@ -36,30 +27,23 @@ export class BarMenuButton extends React.Component {
 
 const styles = StyleSheet.create({
   containerButton: {
+    alignItems: 'center',
     backgroundColor: Colors.white,
     borderRadius: 5,
     elevation: 5,
     flexDirection: 'row',
     height: 70,
+    justifyContent: 'center',
     padding: 5,
     shadowColor: Colors.black,
     shadowRadius: 5,
     shadowOpacity: 0.5,
   },
-  menuIcon: {
-  },
-  containerText: {
-    height: '100%'
-  },
-  dropdownIcon: {
-
+  menuImage: {
+    height: 50
   },
   titleText: {
     fontSize: 12,
     fontWeight: 'bold'
   },
-  descriptionText: {
-    fontSize: 10,
-    fontWeight: '100'
-  }
 })

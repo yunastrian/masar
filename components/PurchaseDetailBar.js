@@ -5,9 +5,9 @@ import {
   Text,
   View,
 } from 'react-native';
-import Colours from '../constants/Colours';
+import Colors from '../constants/Colors';
 
-export class DetailPurchaseBar extends React.Component {
+export class PurchaseDetailBar extends React.Component {
   render() {
     return (
       <View>
@@ -30,7 +30,7 @@ export class DetailPurchaseBar extends React.Component {
 
 const styles = StyleSheet.create({
   containerBar: {
-    backgroundColor: Colours.white,
+    backgroundColor: Colors.white,
     flexDirection: 'row',
     height: 50
   },
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     height: 50
   },
   priceText: {
-    color: Colours.lightRed
+    color: Colors.lightRed
   },
   text: {
     fontSize: 10
