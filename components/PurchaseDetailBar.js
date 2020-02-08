@@ -6,6 +6,7 @@ import {
   View,
 } from 'react-native';
 import Colors from '../constants/Colors';
+import { CurrencyFormat } from '../utils/Format';
 
 export class PurchaseDetailBar extends React.Component {
   render() {
@@ -18,10 +19,10 @@ export class PurchaseDetailBar extends React.Component {
         <View>
           <Text style={styles.titleText}>{this.props.productName}</Text>
           <Text>
-            <Text style={styles.priceText, styles.text}>Rp{this.props.productPrice}</Text>
+            <Text style={styles.priceText, styles.text}>{CurrencyFormat(this.props.productPrice)}</Text>
             <Text style={styles.text}>x {this.props.productAmount}</Text> 
           </Text>
-          <Text style={styles.priceText, styles.text}>Rp{this.props.subPrice}</Text>
+          <Text style={styles.priceText, styles.text}>{CurrencyFormat(this.props.subPrice)}</Text>
         </View>
       </View>
     );
