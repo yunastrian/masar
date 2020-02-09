@@ -1,41 +1,49 @@
 import React from 'react';
-import {
-  Image,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import Colours from '../constants/Colours';
+import { Image, StyleSheet, Text, View, PropTypes } from 'react-native';
+import Colors from '../constants/Colors';
 
-export class NewItemBox extends React.Component {
+export default class NewItemBox extends React.Component {
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Image
-          style={styles.containerImage}
-          source={this.props.itemImage}
+          style={{flex: 1,
+                  width: 140,
+                  height: 140}}
+          source={require('../Untitled.png')}
         />
         <Text style={styles.titleText}>{this.props.productName}</Text>
-        <Text style={styles.priceText, styles.text}>Rp{this.props.productPrice}</Text>
+        <Text style={styles.priceAfterText}>Rp{this.props.productPriceAfter}</Text>
       </View>
     );
   }
 }
-  
+
 const styles = StyleSheet.create({
-  containerImage: {
-    height: 100, 
-    aspectRatio: 1,
-    style: 'contain'
+  container: {
+    flex: 1,
+    marginHorizontal: 4,
+    marginVertical: 4,
+    paddingBottom: 2,
+    backgroundColor: '#fff',
+    width: 140,
+    borderRadius: 4,
+    borderColor: '#D3D3D3',
+    borderWidth: 1
   },
   titleText: {
-    fontSize: 12,
+    fontSize: 16,
+    paddingTop: 4,
+    paddingLeft: 4,
+    paddingRight: 4,
     fontWeight: 'bold'
   },
-  priceText: {
-    color: Colours.lightRed
-  },
-  text: {
-    fontSize: 10
+  priceAfterText: {
+    fontSize: 16,
+    paddingLeft: 4,
+    paddingRight: 4,
+    paddingBottom: 4,
+    color: '#FF5C49',
+    fontWeight: 'bold'
   }
 });

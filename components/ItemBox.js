@@ -1,67 +1,60 @@
 import React from 'react';
-import {
-  Image,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import Colours from '../constants/Colours';
+import { Image, StyleSheet, Text, View, PropTypes } from 'react-native';
 
-export class ItemBox extends React.Component {
+export default class ItemBox extends React.Component {
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Image
-          style={styles.containerImage}
-          source={this.props.itemImage}
+          style={{flex: 1,
+                  width: 170,
+                  height: 170}}
+          source={require('../Untitled.png')}
+          //source={{uri: 'https://facebook.github.io/react/logo-og.png'}}
         />
         <Text style={styles.titleText}>{this.props.productName}</Text>
-        <Text style={styles.priceAfterText, styles.text}>Rp{this.props.productPriceAfter}</Text>
-        <Text>
+        <Text style={styles.priceAfterText}>Rp{this.props.productPriceAfter}</Text>
+        <Text style={styles.discount}>
           <Text style={styles.priceBeforeText}>Rp{this.props.productPriceBefore}</Text>
-          <Text style={styles.discountText}>{this.props.productDiscount}%</Text>
+          <Text style={styles.discountText}> -{this.props.productDiscount}%</Text>
         </Text>
-        <Image
-          style={styles.starImage}
-          source={this.props.starImage}
-        />
-        <Image
-          style={styles.favouriteImage}
-          source={this.props.favourite}
-        />
       </View>
     );
   }
 }
-  
+
 const styles = StyleSheet.create({
-  containerImage: {
-    height: 100, 
-    aspectRatio: 1,
-    style: 'contain'
+  container: {
+    flex: 1,
+    marginHorizontal: 4,
+    marginVertical: 4,
+    paddingBottom: 2,
+    backgroundColor: '#fff',
+    width: '100%',
+    borderRadius: 4,
+    borderColor: '#D3D3D3',
+    borderWidth: 1
   },
   titleText: {
-    fontSize: 12,
+    fontSize: 16,
+    paddingLeft: 4,
     fontWeight: 'bold'
   },
   priceAfterText: {
-    color: Colours.lightRed
+    fontSize: 16,
+    paddingLeft: 4,
+    color: '#FF5C49',
+    fontWeight: 'bold'
+  },
+  discount: {
+    paddingLeft: 4
   },
   priceBeforeText: {
-    color: Colours.grey
+    color: '#9F9F9F',
+    textDecorationLine: 'line-through', 
+    textDecorationStyle: 'solid'
   },
   discountText: {
     color: '#ff0000'
-  },
-  text: {
-    fontSize: 10
-  },
-  starImage: {
-    height: 20, 
-    aspectRatio: 1,
-  },
-  favouriteImage: {
-    height: 20, 
-    aspectRatio: 1,
   }
 });
