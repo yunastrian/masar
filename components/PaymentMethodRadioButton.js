@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import Colors from '../constants/Colors';
 
-export class PaymentMethodRadioButton extends React.Component {
+export default class PaymentMethodRadioButton extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);

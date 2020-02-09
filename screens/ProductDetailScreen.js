@@ -6,17 +6,18 @@ import {
   FlatList,
   Button,
 } from 'react-native';
-import { ItemDetailInfoView } from '../components/ItemDetailInfoView';
-import { VoucherView } from '../components/VoucherView';
 import Colors from '../constants/Colors';
 import { CurrencyFormat } from '../utils/Format';
 
-export default class CategoryScreen extends React.Component {
+import ProductDetailInfoView from '../components/ProductDetailInfoView';
+import VoucherView from '../components/VoucherView';
+
+export default class ProductDetailScreen extends React.Component {
 
   state = {
-    itemTitle: '',
-    itemPrice: '',
-    itemRating: '',
+    productTitle: '',
+    productPrice: '',
+    productRating: '',
     isAR: false,
     seenCount: 0,
     soldCount: 0,
@@ -27,33 +28,33 @@ export default class CategoryScreen extends React.Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <Image style={styles.itemImage}/>
-        <View style={style.itemTitleContainer}>
+        <Image style={styles.productImage}/>
+        <View style={style.productTitleContainer}>
           <View>
-            <Text style={styles.itemTitleText}>{this.state.itemTitle}</Text>
-            <Text style={styles.itemPriceText}>{CurrencyFormat(this.state.itemPrice)}</Text>
+            <Text style={styles.productTitleText}>{this.state.productTitle}</Text>
+            <Text style={styles.productPriceText}>{CurrencyFormat(this.state.productPrice)}</Text>
           </View>
           <View>
             { this.state.isAR && 
               <Button style={styles.ARButton}>Coba AR</Button>
             }
-            <Text>{this.state.itemRating}/5.0</Text>
+            <Text>{this.state.productRating}/5.0</Text>
           </View>
         </View>
-        <View style={styles.itemInfoContainer}>
-          <ItemDetailInfoView
+        <View style={styles.productInfoContainer}>
+          <ProductDetailInfoView
             title={Dilihat}
             description={this.state.seenCount}
           />
-          <ItemDetailInfoView
+          <ProductDetailInfoView
             title={Terjual}
             description={this.state.soldCount}
           />
-          <ItemDetailInfoView
+          <ProductDetailInfoView
             title={Favorit}
             description={this.state.favoriteCount}
           />
-          <ItemDetailInfoView/>
+          <ProductDetailInfoView/>
         </View>
         <View>
           <FlatList
@@ -79,21 +80,21 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     flexDirection: 'column'
   },
-  itemImage: {
+  productImage: {
     width: '100%',
     height: 70
   },
-  itemTitleContainer: {
+  productTitleContainer: {
     flexDirection: 'row'
   },
-  itemInfoContainer: {
+  productInfoContainer: {
     flexDirection: 'row'
   },
-  itemTitleText: {
+  productTitleText: {
     fontSize: 12,
     fontWeight: 'bold'
   },
-  itemPriceText: {
+  productPriceText: {
     fontSize: 10,
     fontWeight: 'bold',
     color: Colors.lightRed

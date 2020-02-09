@@ -5,7 +5,7 @@ import {
   View,
 } from 'react-native';
 
-export class TitleDescriptionText extends React.Component {
+export default class TitleDescriptionText extends React.Component {
   render() {
     return (
       <View>

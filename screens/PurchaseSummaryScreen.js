@@ -1,19 +1,21 @@
 import React from 'react';
 import { 
+  FlatList,
   ScrollView, 
   StyleSheet,
-  Picker,
-  FlatList
+  Text,
+  View,
 } from 'react-native';
 import Colors from '../constants/Colors';
-import { TitleDescriptionText } from '../components/TitleDescriptionText'
-import { PurchaseDetailBar } from '../components/PurchaseDetailBar'
+import TitleDescriptionText from '../components/TitleDescriptionText'
+import PurchaseDetailBar from '../components/PurchaseDetailBar'
 
 export default class PurchaseSummaryScreen extends React.Component {
   state = {
     name: "",
     phone: "",
-    address: ""
+    address: "",
+    subTotal: 0
   }
 
   handleChange(paymentId) {

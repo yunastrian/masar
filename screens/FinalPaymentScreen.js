@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import Colors from '../constants/Colors';
 import { CurrencyFormat } from '../utils/Format';
-import { PaymentMethodRadioButton } from '../components/PaymentMethodRadioButton';
+import PaymentMethodRadioButton from '../components/PaymentMethodRadioButton';
 
 export default class FinalPaymentScreen extends React.Component {
   state = {

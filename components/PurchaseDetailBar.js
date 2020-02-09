@@ -8,13 +8,13 @@ import {
 import Colors from '../constants/Colors';
 import { CurrencyFormat } from '../utils/Format';
 
-export class PurchaseDetailBar extends React.Component {
+export default class PurchaseDetailBar extends React.Component {
   render() {
     return (
       <View>
         <Image 
           style={styles.containerImage}
-          source={this.props.urlImage}
+          source={require(this.props.urlImage)}
         />
         <View>
           <Text style={styles.titleText}>{this.props.productName}</Text>

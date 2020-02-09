@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import Colors from '../constants/Colors';
 
-export class BarMenuButton extends React.Component {
+export default class ProductDetailInfoView extends React.Component {
   render() {
     return (
       <View style={styles.containerView}>
