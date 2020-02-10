@@ -72,7 +72,7 @@ export default class FinalPaymentScreen extends React.Component {
 
 const styles = StyleSheet.create({
   section: {
-    marginBottom: 10
+    marginBottom: 15
   },
   container: {
     flex: 1,

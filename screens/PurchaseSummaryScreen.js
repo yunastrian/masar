@@ -1,6 +1,5 @@
 import React from 'react';
 import { 
-  FlatList,
   ScrollView, 
   StyleSheet,
   Text,
@@ -9,12 +8,27 @@ import {
 import Colors from '../constants/Colors';
 import TitleDescriptionText from '../components/TitleDescriptionText'
 import PurchaseDetailBar from '../components/PurchaseDetailBar'
+import {CurrencyFormat} from '../utils/Format'
 
 export default class PurchaseSummaryScreen extends React.Component {
   state = {
-    name: "",
-    phone: "",
-    address: "",
+    name: "tes",
+    phone: "08x",
+    address: "Jl. Cisitu",
+    purchases: [
+      {
+        productId: 1,
+        productName: "tas",
+        productAmount: 1,
+        productPrice: 1000
+      },
+      {
+        productId: 2,
+        productName: "tas",
+        productAmount: 1,
+        productPrice: 1000
+      }
+    ],
     subTotal: 0
   }
 
@@ -25,7 +39,7 @@ export default class PurchaseSummaryScreen extends React.Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <View>
+        <View style={{marginBottom: 15}}>
           <Text style={styles.titleSectionText}>Detail Pengiriman</Text>
           <View style={styles.textContainer}>
             <TitleDescriptionText
@@ -45,17 +59,18 @@ export default class PurchaseSummaryScreen extends React.Component {
         <View>
           <Text style={styles.titleSectionText}>Detail Pembelian</Text>
           <View style={styles.textContainer}>
-            <FlatList 
-              data={this.state.purchases}
-              renderItem={({item}) => <PurchaseDetailBar
-                                        productName={item.productName}
-                                        productAmount={item.productAmount}
-                                        price={item.price}
-                                        subPrice={item.price * item.productAmount}
-                                      />
-                          }
-            />
-            <View>
+            {this.state.purchases && this.state.purchases.map((item, key) => {
+              return (
+                <PurchaseDetailBar
+                  key={key}
+                  productName={item.productName}
+                  productAmount={item.productAmount}
+                  productPrice={item.productPrice}
+                  subPrice={item.productPrice * item.productAmount}
+                />
+              )})
+            }
+            <View style={{flexDirection: 'row', justifyContent: 'space-between', padding: 5}}>
               <View style={styles.purchaseDetailLeftContainer}>
                 <Text style={styles.purchaseDetailLeftText}>Sub Total</Text>
               </View>
@@ -74,24 +89,37 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 15,
-    backgroundColor: '#fff',
-    flexDirection: 'column'
+    backgroundColor: Colors.lightGrey2,
+    flexDirection: 'column',
+    paddingHorizontal: 15
   },
   titleSectionText: {
-    fontSize: 14,
-    fontWeight: 'bold'
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 10
   },
   textContainer: {
-    flex:1,
-    flexDirection: "row",
+    flexDirection: "column",
     backgroundColor: Colors.white,
-    borderRadius: 5,
-    elevation: 5,
-    height: 70,
-    justifyContent: 'center',
-    padding: 5,
-    shadowColor: Colors.black,
-    shadowRadius: 5,
-    shadowOpacity: 0.5,
+    borderRadius: 10,
+    flex: 1,
+    paddingHorizontal: 5,
+    justifyContent: 'flex-start',
+    borderColor: Colors.lightBlue2,
+    borderWidth: 2
   },
+  purchaseDetailLeftText : {
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
+  purchaseDetailRightText : {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: Colors.lightRed
+  }
 });
+
+
+LinksScreen.navigationOptions = {
+  title: 'Kategori',
+};
