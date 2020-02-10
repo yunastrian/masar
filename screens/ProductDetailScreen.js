@@ -21,7 +21,7 @@ export default class ProductDetailScreen extends React.Component {
     isAR: false,
     seenCount: 0,
     soldCount: 0,
-    favoriteCount: 0,
+    favouriteCount: 0,
     voucher: []
   }
 
@@ -52,7 +52,7 @@ export default class ProductDetailScreen extends React.Component {
           />
           <ProductDetailInfoView
             title={Favorit}
-            description={this.state.favoriteCount}
+            description={this.state.favouriteCount}
           />
           <ProductDetailInfoView/>
         </View>

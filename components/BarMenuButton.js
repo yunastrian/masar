@@ -1,35 +1,31 @@
 import React from 'react';
-import { Icon } from 'expo';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight
+  TouchableOpacity
 } from 'react-native';
 import Colors from '../constants/Colors';
 
 export default class BarMenuButton extends React.Component {
   render() {
     return (
-      <TouchableHighlight 
+      <TouchableOpacity 
         onPress={()=>{}}
       >
         <View style={styles.containerButton}>
-          <Icon.Ionicons 
+          <Ionicons
             name={this.props.iconName}
+            size={80}
             style={styles.menuIcon}
           />
           <View style={styles.containerText}>
             <Text style={styles.titleText}>{this.props.title}</Text>
-            <Text style={styles.descriptionText}>{this.props.description}</Text>
+            <Text style={styles.descriptionText} multiline = {true} ellipsizeMode='tail'>{this.props.description}</Text>
           </View>
-          <Icon.Ionicons
-            name='arrow-dropdown-circle'
-            size={15}
-            style={styles.dropdownIcon}
-          />
         </View>
-      </TouchableHighlight>
+      </TouchableOpacity>
     );
   }
 }
@@ -38,15 +34,19 @@ const styles = StyleSheet.create({
   containerButton: {
     backgroundColor: Colors.white,
     borderRadius: 5,
+    // borderColor: Colors.grey,
     elevation: 5,
     flexDirection: 'row',
-    height: 70,
-    padding: 5,
-    shadowColor: Colors.black,
-    shadowRadius: 5,
-    shadowOpacity: 0.5,
+    height: 100,
+    padding: 10,
+    // shadowColor: Colors.grey,
+    // shadowRadius: 5,
+    // shadowOpacity: 0.5,
+    alignItems: 'center'
   },
   menuIcon: {
+    marginRight: 10,
+    color: Colors.blue
   },
   containerText: {
     height: '100%'
@@ -55,11 +55,12 @@ const styles = StyleSheet.create({
 
   },
   titleText: {
-    fontSize: 12,
-    fontWeight: 'bold'
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: Colors.darkBlue
   },
   descriptionText: {
-    fontSize: 10,
+    fontSize: 12,
     fontWeight: '100'
   }
 })
