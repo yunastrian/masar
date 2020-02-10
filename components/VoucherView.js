@@ -24,24 +24,23 @@ export default class BarMenuButton extends React.Component {
 const styles = StyleSheet.create({
   containerView: {
     backgroundColor: Colors.blue,
-    borderRadius: 5,
-    elevation: 5,
+    borderRadius: 10,
     flexDirection: 'column',
-    height: 50,
-    width: 80,
-    padding: 5,
-    shadowColor: Colors.black,
-    shadowRadius: 5,
-    shadowOpacity: 0.5,
+    width: 150,
+    padding: 10,
+    marginRight: 10,
+    justifyContent: 'space-between'
   },
   titleText: {
-    fontSize: 10,
+    fontSize: 12,
     fontWeight: '100',
-    textAlign: "center"
+    textAlign: "center",
+    color: Colors.white
   },
   descriptionText: {
-    fontSize: 12,
+    fontSize: 14,
     fontWeight: 'bold',
-    textAlign: "center"
+    textAlign: "center",
+    color: Colors.white
   }
 })
