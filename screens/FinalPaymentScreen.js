@@ -2,7 +2,9 @@ import React from 'react';
 import { 
   ScrollView, 
   StyleSheet,
-  Picker
+  Picker,
+  View,
+  Text,
 } from 'react-native';
 import Colors from '../constants/Colors';
 import { CurrencyFormat } from '../utils/Format';
@@ -10,23 +12,22 @@ import PaymentMethodRadioButton from '../components/PaymentMethodRadioButton';
 
 export default class FinalPaymentScreen extends React.Component {
   state = {
-    shipment: "regular",
+    shipment: "0",
     totalPayment: 0,
     totalShipment: 0,
     assurance: 0,
     total: 0,
-    paymentMethod: [],
     paymentId: null
   }
 
-  handleChange(paymentId) {
+  handleChange = (paymentId) => {
     this.setState({paymentId})
   }
 
   render() {
     return (
       <ScrollView style={styles.container}>
-        <View>
+        <View style={styles.section}>
           <Text style={styles.titleSectionText}>Jenis Pengiriman</Text>
           <Picker
             selectedValue={this.state.shipment}
@@ -37,17 +38,18 @@ export default class FinalPaymentScreen extends React.Component {
               }
             }
           >
-            <Picker.Item label="Reguler" value="regular" />
-            <Picker.Item label="Express" value="express" />
+            <Picker.Item style={styles.shipmentPicker} label="Reguler" value="0" />
+            <Picker.Item style={styles.shipmentPicker} label="Express" value="1" />
           </Picker>
         </View>
-        <View>
+        <View style={styles.section}>
           <Text style={styles.titleSectionText}>Ringkasan Belanja</Text>
           <View style={styles.purchaseDetailContainer}>
             <View style={styles.purchaseDetailLeftContainer}>
               <Text style={styles.purchaseDetailLeftText}>Total Harga</Text>
               <Text style={styles.purchaseDetailLeftText}>Total Ongkos Kirim</Text>
               <Text style={styles.purchaseDetailLeftText}>Asuransi Pengiriman</Text>
+              <Text style={styles.purchaseDetailLeftText}>Total</Text>
             </View>
             <View style={styles.purchaseDetailRightContainer}>
               <Text style={styles.purchaseDetailRightText}>{CurrencyFormat(this.state.totalPayment)}</Text>
@@ -57,10 +59,9 @@ export default class FinalPaymentScreen extends React.Component {
             </View>
           </View>
         </View>
-        <View>
+        <View style={styles.section}>
           <Text style={styles.titleSectionText}>Pilih Metode Pembayaran</Text>
           <PaymentMethodRadioButton 
-            options={this.state.paymentMethod}
             onChange={this.handleChange}
           />
         </View>
@@ -70,39 +71,44 @@ export default class FinalPaymentScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  section: {
+    marginBottom: 10
+  },
   container: {
     flex: 1,
     paddingTop: 15,
-    backgroundColor: '#fff',
+    paddingHorizontal: 15,
+    backgroundColor: Colors.lightGrey2,
     flexDirection: 'column'
   },
   titleSectionText: {
-
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 10
   },
   shipmentPicker: {
-
   },
   purchaseDetailContainer: {
     flex:1,
     flexDirection: "row",
     backgroundColor: Colors.white,
-    borderRadius: 5,
-    elevation: 5,
-    height: 70,
+    borderRadius: 10,
+    // elevation: 10,
+    borderWidth: 2,
+    borderColor: Colors.lightBlue2,
     justifyContent: 'center',
-    padding: 5,
+    padding: 10,
     shadowColor: Colors.black,
-    shadowRadius: 5,
-    shadowOpacity: 0.5,
   },
   purchaseDetailLeftContainer: {
-    flex:1,
+    flex:3,
     flexDirection: "column",
   },
   purchaseDetailLeftText: {
     textAlign: "left",
-    fontSize: 12,
-    fontWeight: 'bold'
+    fontSize: 14,
+    fontWeight: 'bold',
+    marginBottom: 4
   },
   purchaseDetailRightContainer: {
     flex:1,
@@ -110,8 +116,9 @@ const styles = StyleSheet.create({
   },
   purchaseDetailRightText: {
     textAlign: "right",
-    fontSize: 12,
+    fontSize: 14,
     fontWeight: 'bold',
-    color: Colors.lightRed
+    color: Colors.lightRed,
+    marginBottom: 4
   },
 });
