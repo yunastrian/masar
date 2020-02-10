@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon } from 'expo';
+import { Ionicons } from '@expo/vector-icons';
 import {
   Image,
   StyleSheet,
@@ -12,30 +12,33 @@ import { CurrencyFormat } from '../utils/Format';
 export default class CartProductBar extends React.Component {
   render() {
     return (
-      <View>
+      <View style={styles.containerBar}>
         <Image 
           style={styles.containerImage}
-          source={require(this.props.urlImage)}
+          source={require('../assets/images/bri.png')}
         />
-        <View>
+        <View style={{flex: 1}}>
           <Text style={styles.titleText}>{this.props.name}</Text>
-          <Text style={styles.priceText, styles.text}>{CurrencyFormat(this.props.price)}</Text>
+          <Text style={[styles.priceText, styles.text]}>{CurrencyFormat(this.props.price)}</Text>
           <View style={styles.miniButtonContainer}>
-            <Icon.Ionicons 
-              name={'trash'}
+            <Ionicons 
+              name={'md-trash'}
               style={styles.icon}
-              onPress={this.props.onPressDelete(this.props.key)}
+              size={30}
+              onPress={() => this.props.onPressDelete(this.props.id)}
             />
-            <Icon.Ionicons 
-              name={'remove-circle'} 
+            <Ionicons 
+              name={'md-remove-circle'} 
               style={styles.icon} 
-              onPress={this.props.onPressAmount(this.props.key, false)}
+              size={30}
+              onPress={() => this.props.onPressAmount(this.props.id, false)}
             />
-            <Text style={styles.text}>{this.props.amount}</Text>
-            <Icon.Ionicons 
-              name={'add-circle'}
+            <Text style={styles.amountText}>{this.props.amount}</Text>
+            <Ionicons 
+              name={'md-add-circle'}
               style={styles.icon}
-              onPress={this.props.onPressAmount(this.props.key, true)}
+              size={30}
+              onPress={() => this.props.onPressAmount(this.props.id, true)}
             />
           </View>
         </View>
@@ -48,32 +51,43 @@ const styles = StyleSheet.create({
   containerBar: {
     backgroundColor: Colors.white,
     flexDirection: 'row',
-    height: 50
+    flex: 1,
+    padding: 10,
+    alignItems: 'center',
+    borderRadius: 10,
+    marginVertical: 5,
+    elevation: 5
   },
   containerImage: {
-    height: 50, 
-    aspectRatio: 1,
-    style: 'contain'
+    height: 80, 
+    width: 80,
+    resizeMode : 'contain',
+    marginRight: 10
   },
   containerText: {
     height: 50
   },
   priceText: {
-    color: Colors.lightRed
+    fontSize: 14,
+    color: Colors.lightRed,
+    fontWeight: 'bold'
   },
-  text: {
-    fontSize: 12
+  amountText: {
+    fontSize: 16,
+    marginLeft: 10
   },
   titleText: {
-    fontSize: 12,
+    fontSize: 16,
     fontWeight: 'bold'
   },
   icon: {
-    height: 12,
-    width: 12,
-    color: Colors.grey
+    color: Colors.grey,
+    marginLeft: 10
   },
   miniButtonContainer: {
-    flexDirection: 'row'
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end'
   }
 });
