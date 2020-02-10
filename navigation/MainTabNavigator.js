@@ -6,18 +6,14 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
+import AccountScreen from '../screens/AccountScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import RecommendScreen from '../screens/RecommendScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
   default: {},
 });
-
-const CategoryStack = createStackNavigator(
-  {
-      
-  }
-)
 
 const HomeStack = createStackNavigator(
   {
@@ -66,7 +62,7 @@ const SettingsStack = createStackNavigator(
 );
 
 SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+  tabBarLabel: 'Akun',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
   ),
@@ -74,10 +70,27 @@ SettingsStack.navigationOptions = {
 
 SettingsStack.path = '';
 
+const RecommendStack = createStackNavigator(
+  {
+    Recommend: RecommendScreen,
+  },
+  config
+);
+
+RecommendStack.navigationOptions = {
+  tabBarLabel: 'Rekomendasi',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+  ),
+};
+
+RecommendStack.path = '';
+
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   LinksStack,
   SettingsStack,
+  RecommendStack,
 });
 
 tabNavigator.path = '';
