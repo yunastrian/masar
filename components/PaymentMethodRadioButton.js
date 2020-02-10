@@ -2,10 +2,17 @@ import React from 'react';
 import {
   StyleSheet,
   Text,
-  Image,
+  View,
   TouchableOpacity
 } from 'react-native';
 import Colors from '../constants/Colors';
+
+const paymentList = [
+  {
+    id: 1,
+    title: 'BRI'
+  }
+]
 
 export default class PaymentMethodRadioButton extends React.Component {
   constructor(props) {
@@ -23,26 +30,20 @@ export default class PaymentMethodRadioButton extends React.Component {
   }
 
 	render() {
-		const { options } = this.props;
     const { value } = this.state;
     
     return (
       <View>
-				{options.map(item => {
+				{paymentList.map(item => {
 					return (
-						<View key={item.id} style={styles.containerButton}>
-              <Image
-                source={require(item.imageUri)}
-                style={styles.menuImage}
-              />
+						<TouchableOpacity key={item.id} style={styles.containerButton} onPress={() => this.handleChange(item.id)}>
               <Text style={styles.titleText}>{item.title}</Text>
-							<TouchableOpacity
+							<View
 								style={styles.circle}
-								onPress={this.handleChange(item.id)}
 							>
 								{value === item.id && <View style={styles.checkedCircle} />}
-							</TouchableOpacity>
-						</View>
+							</View>
+						</TouchableOpacity>
 					);
 				})}
 			</View>
@@ -54,15 +55,13 @@ const styles = StyleSheet.create({
   containerButton: {
     alignItems: 'center',
     backgroundColor: Colors.white,
-    borderRadius: 5,
-    elevation: 5,
+    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: Colors.lightBlue2,
     flexDirection: 'row',
-    height: 70,
+    height: 50,
     justifyContent: 'center',
-    padding: 5,
-    shadowColor: Colors.black,
-    shadowRadius: 5,
-    shadowOpacity: 0.5,
+    padding: 10,
   },
   menuImage: {
     height: 50,
@@ -70,21 +69,23 @@ const styles = StyleSheet.create({
   },
   titleText: {
     fontSize: 12,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    flex: 1
   },
   circle: {
 		height: 20,
 		width: 20,
 		borderRadius: 10,
 		borderWidth: 1,
-		borderColor: Colors.grey,
+		borderColor: Colors.lightBlue2,
 		alignItems: 'center',
-		justifyContent: 'center',
+    justifyContent: 'center',
 	},
 	checkedCircle: {
 		width: 14,
 		height: 14,
 		borderRadius: 7,
-		backgroundColor: Colors.darkBlue,
+    backgroundColor: Colors.blue,
+    justifyContent: 'center',
 	},
 })
