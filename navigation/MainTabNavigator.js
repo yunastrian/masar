@@ -10,7 +10,8 @@ import AccountScreen from '../screens/AccountScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import RecommendScreen from '../screens/RecommendScreen';
 import CategoryScreen from '../screens/CategoryScreen';
-import SearchResultScreen from '../screens/SearchResultScreen';
+import CartScreen from '../screens/CartScreen';
+import ProductDetailScreen from '../screens/ProductDetailScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -20,6 +21,7 @@ const config = Platform.select({
 const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
+    ProductDetail: ProductDetailScreen
   },
   config
 );
@@ -74,7 +76,7 @@ SettingsStack.path = '';
 
 const RecommendStack = createStackNavigator(
   {
-    Recommend: RecommendScreen,
+    Recommend: CartScreen,
   },
   config
 );

@@ -3,6 +3,7 @@ import { StackNavigator, cre } from 'react-navigation';
 import { Alert, Button, TextInput, View, StyleSheet, TouchableOpacity, Text, Image } from 'react-native';
 import SearchResultScreen from '../screens/SearchResultScreen';
 import { createStackNavigator } from 'react-navigation-stack';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },

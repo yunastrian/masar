@@ -8,7 +8,7 @@ import {
 import CartProductBar from '../components/CartProductBar';
 import Colors from '../constants/Colors';
 
-export default class LinksScreen extends React.Component {
+export default class CartScreen extends React.Component {
   state = {
     carts: [
       {
@@ -121,6 +121,17 @@ export default class LinksScreen extends React.Component {
     );
   }
 }
+
+CartScreen.navigationOptions = {
+  title: 'Keranjang',
+  headerStyle: {
+    backgroundColor: '#4c9ad1'
+  },
+  headerTitleStyle: {
+    color: 'white',
+    fontWeight: 'bold'
+  }
+};
 
 const styles = StyleSheet.create({
   container: {

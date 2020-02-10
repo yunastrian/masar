@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, ScrollView, StyleSheet, View, ListView, Text, Image, Button } from 'react-native';
+import { FlatList, ScrollView, StyleSheet, View, ListView, Text, Image, Button, TouchableOpacity } from 'react-native';
 import NewItemBox from '../components/NewItemBox';
 import Promotions from '../components/Promotions';
 import SearchBar from '../components/SearchBar';
@@ -47,9 +47,9 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-      <Button onPress = {() => this.props.navigation.navigate('SearchResult')}
+      {/* <Button onPress = {() => this.props.navigation.navigate('SearchResult')}
                           title = 'Detail'
-                        />
+                        /> */}
       <ScrollView
         horizontal
         pagingEnabled
@@ -72,10 +72,14 @@ export default class HomeScreen extends React.Component {
         showsHorizontalScrollIndicator={false}
         style={styles.promo}
       >
+        <TouchableOpacity 
+          onPress={()=>this.props.navigation.navigate('ProductDetail')}
+        >
         <NewItemBox 
           productName = {results[0].productName}
           productPriceAfter = {results[0].productPriceAfter}
         />
+        </TouchableOpacity>
         <NewItemBox 
           productName = {results[0].productName}
           productPriceAfter = {results[0].productPriceAfter}

@@ -75,6 +75,7 @@ export default class ProductDetailScreen extends React.Component {
           <Text style={styles.voucherText}>Voucher</Text>
           <ScrollView 
             horizontal
+            showsHorizontalScrollIndicator={false}
           >
             {this.state.voucher.map((item) => {
               return(
