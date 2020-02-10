@@ -9,7 +9,7 @@ export default class NewItemBox extends React.Component {
         <Image
           style={{flex: 1,
                   width: 140,
-                  height: 140}}
+                  height: 140, borderRadius: 8}}
           source={require('../Untitled.png')}
         />
         <Text style={styles.titleText}>{this.props.productName}</Text>
@@ -22,12 +22,12 @@ export default class NewItemBox extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginHorizontal: 4,
+    marginRight: 8,
     marginVertical: 4,
     paddingBottom: 2,
     backgroundColor: '#fff',
     width: 140,
-    borderRadius: 4,
+    borderRadius: 8,
     borderColor: '#D3D3D3',
     borderWidth: 1
   },

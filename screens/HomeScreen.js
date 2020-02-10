@@ -2,6 +2,7 @@ import React from 'react';
 import { FlatList, ScrollView, StyleSheet, View, ListView, Text, Image } from 'react-native';
 import NewItemBox from '../components/NewItemBox';
 import Promotions from '../components/Promotions';
+import SearchBar from '../components/SearchBar';
 
 const results = [
   {
@@ -65,6 +66,7 @@ export default class HomeScreen extends React.Component {
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
+        style={styles.promo}
       >
         <NewItemBox 
           productName = {results[0].productName}
@@ -89,6 +91,7 @@ export default class HomeScreen extends React.Component {
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
+        style={styles.promo}
       >
         <NewItemBox 
           productName = {results[0].productName}
@@ -112,6 +115,13 @@ export default class HomeScreen extends React.Component {
   }
 }
 
+HomeScreen.navigationOptions = {
+  headerTitle: props => <SearchBar />,
+  headerStyle: {
+    backgroundColor: '#4c9ad1',
+  },
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -121,15 +131,16 @@ const styles = StyleSheet.create({
   newArr: {
     fontWeight: 'bold',
     fontSize: 18,
-    marginLeft: 4,
+    marginLeft: 15,
     paddingTop: 4,
     marginBottom: -20
   },
   more: {
     textAlign: 'right',
-    paddingRight: 4
+    paddingRight: 15
   },
   promo: {
-    margin: 5
+    paddingLeft: 15,
+    paddingRight: 15
   }
 });

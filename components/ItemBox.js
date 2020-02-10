@@ -8,7 +8,7 @@ export default class ItemBox extends React.Component {
         <Image
           style={{flex: 1,
                   width: 170,
-                  height: 170}}
+                  height: 170, borderRadius: 8}}
           source={require('../Untitled.png')}
           //source={{uri: 'https://facebook.github.io/react/logo-og.png'}}
         />
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     paddingBottom: 2,
     backgroundColor: '#fff',
     width: '100%',
-    borderRadius: 4,
+    borderRadius: 8,
     borderColor: '#D3D3D3',
     borderWidth: 1
   },

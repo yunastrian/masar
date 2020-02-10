@@ -1,0 +1,26 @@
+{
+  "items": [
+    {
+      "name": "Tas Mustard dengan Pegangan",
+      "price": 200000,
+      "imageUri": "tasMustard.jpg",
+      "rating": 5.0,
+      "seen": 300,
+      "sold": 48,
+      "favourite": 18,
+      "isAR": false,
+      "categories": [ "fashion" ]
+    },
+    {
+      "name": "Lukisan Bagus Sekali",
+      "price": 175000,
+      "imageUri": "lukisanBagus.jpg",
+      "rating": 4.7,
+      "seen": 285,
+      "sold": 123,
+      "favourite": 76,
+      "isAR": true,
+      "categories": [ "hiasan", "lukisan" ]
+    }
+  ]
+}
