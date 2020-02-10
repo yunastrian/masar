@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View, PropTypes } from 'react-native';
+import { CurrencyFormat } from '../utils/Format';
 
 export default class ItemBox extends React.Component {
   render() {
@@ -13,9 +14,9 @@ export default class ItemBox extends React.Component {
           //source={{uri: 'https://facebook.github.io/react/logo-og.png'}}
         />
         <Text style={styles.titleText}>{this.props.productName}</Text>
-        <Text style={styles.priceAfterText}>Rp{this.props.productPriceAfter}</Text>
+        <Text style={styles.priceAfterText}>{CurrencyFormat(this.props.productPriceAfter)}</Text>
         <Text style={styles.discount}>
-          <Text style={styles.priceBeforeText}>Rp{this.props.productPriceBefore}</Text>
+          <Text style={styles.priceBeforeText}>{CurrencyFormat(this.props.productPriceBefore)}</Text>
           <Text style={styles.discountText}> -{this.props.productDiscount}%</Text>
         </Text>
       </View>

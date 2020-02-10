@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View, PropTypes } from 'react-native';
 import Colors from '../constants/Colors';
+import { CurrencyFormat } from '../utils/Format';
 
 export default class NewItemBox extends React.Component {
   render() {
@@ -13,7 +14,7 @@ export default class NewItemBox extends React.Component {
           source={require('../Untitled.png')}
         />
         <Text style={styles.titleText}>{this.props.productName}</Text>
-        <Text style={styles.priceAfterText}>Rp{this.props.productPriceAfter}</Text>
+        <Text style={styles.priceAfterText}>{CurrencyFormat(this.props.productPriceAfter)}</Text>
       </View>
     );
   }

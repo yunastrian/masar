@@ -7,7 +7,22 @@ const categories = [
   {
     title: 'Lukisan',
     description: 'Klasisme, Romantisme, Realisme, Naturalisme',
-    iconName: 'color-palette'
+    iconName: 'md-color-palette'
+  },
+  {
+    title: 'Perabotan',
+    description: 'Kursi, meja, karpet, keset',
+    iconName: 'md-bed'
+  },
+  {
+    title: 'Fashion Wanita',
+    description: 'Tas, jaket, cincin, gelang, kalung',
+    iconName: 'md-basket'
+  },
+  {
+    title: 'Hiasan Rumah',
+    description: 'Vas, bunga palsu, lampu hias, kreasi rotan, patung',
+    iconName: 'md-rose'
   }
 ]
 
@@ -31,12 +46,22 @@ export default function CategoryScreen() {
 
 CategoryScreen.navigationOptions = {
   title: 'Kategori',
+  headerStyle: {
+    backgroundColor: '#4c9ad1'
+  },
+  headerTitleStyle: {
+    color: 'white',
+    fontWeight: 'bold'
+  }
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 15,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.lightGrey2,
+    paddingHorizontal: 15,
+    borderRadius: 10,
+    elevation: 5
   },
 });

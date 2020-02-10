@@ -10,7 +10,14 @@ const results = [
     productPriceAfter: '23000',
     productPriceBefore: '26000',
     productDiscount: '40'
-  }
+  },
+  {
+    itemImage: 'Untitled.png',
+    productName: 'Tas tangan buatan tangan',
+    productPriceAfter: '23000',
+    productPriceBefore: '26000',
+    productDiscount: '40'
+  },
 ]
 
 const filter = [

@@ -1,6 +1,7 @@
 import React from 'react';
 import { FlatList, ScrollView, StyleSheet, View, ListView, Text, Image } from 'react-native';
 import RecommendItem from '../components/RecommendItem';
+import Colors from '../constants/Colors';
 
 export default class RecommendScreen extends React.Component {
   render() {
@@ -41,10 +42,23 @@ export default class RecommendScreen extends React.Component {
   }
 }
 
+RecommendScreen.navigationOptions = {
+  title: 'Rekomendasi',
+  headerStyle: {
+    backgroundColor: '#4c9ad1'
+  },
+  headerTitleStyle: {
+    color: 'white',
+    fontWeight: 'bold'
+  }
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 4,
+    paddingLeft: 15,
+    paddingRight: 15,
     backgroundColor: 'rgb(235,235,235)'
   },
   newArr: {
@@ -56,6 +70,7 @@ const styles = StyleSheet.create({
   },
   more: {
     textAlign: 'right',
-    paddingRight: 4
+    paddingRight: 4,
+    color: Colors.lightBlue
   },
 });

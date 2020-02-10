@@ -118,6 +118,17 @@ export default class AccountScreen extends React.Component {
   }
 }
 
+AccountScreen.navigationOptions = {
+  title: 'Akun',
+  headerStyle: {
+    backgroundColor: '#4c9ad1'
+  },
+  headerTitleStyle: {
+    color: 'white',
+    fontWeight: 'bold'
+  }
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

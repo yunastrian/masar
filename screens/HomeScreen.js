@@ -1,14 +1,15 @@
 import React from 'react';
-import { FlatList, ScrollView, StyleSheet, View, ListView, Text, Image } from 'react-native';
+import { FlatList, ScrollView, StyleSheet, View, ListView, Text, Image, Button } from 'react-native';
 import NewItemBox from '../components/NewItemBox';
 import Promotions from '../components/Promotions';
 import SearchBar from '../components/SearchBar';
+import Colors from '../constants/Colors';
 
 const results = [
   {
     itemImage: 'Untitled.png',
     productName: 'Tas mustardo buatan tangan',
-    productPriceAfter: '23000',
+    productPriceAfter: 23000,
   },
   {
     itemImage: 'Untitled.png',
@@ -46,11 +47,14 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <ScrollView style={styles.container}>
+      <Button onPress = {() => this.props.navigation.navigate('SearchResult')}
+                          title = 'Detail'
+                        />
       <ScrollView
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
-        style={styles.promo}
+        style={styles.promo2}
       >
         <Promotions content='Promo Gajian Diskon Hingga 90%' colour='#d45656'/>
         <Promotions content='Promo Merdeka Diskon Hingga 45%' colour='#3c4d85'/>
@@ -137,10 +141,17 @@ const styles = StyleSheet.create({
   },
   more: {
     textAlign: 'right',
-    paddingRight: 15
+    paddingRight: 15,
+    color: Colors.lightBlue
   },
   promo: {
     paddingLeft: 15,
-    paddingRight: 15
+    paddingRight: 15,
+    paddingBottom: 15
+  },
+  promo2: {
+    paddingLeft: 15,
+    paddingRight: 15,
+    paddingTop: 10
   }
 });

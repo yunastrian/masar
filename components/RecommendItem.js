@@ -23,10 +23,10 @@ const styles = StyleSheet.create({
     marginVertical: 4,
     paddingBottom: 4,
     backgroundColor: '#fff',
-    width: 116,
     justifyContent: 'center',
     alignItems: 'center',
-    height: 116,
+    width: 106,
+    height: 106,
     borderRadius: 4,
     borderColor: '#D3D3D3',
     borderWidth: 1
