@@ -1,6 +1,7 @@
 import React from 'react';
-import { FlatList, ScrollView, StyleSheet } from 'react-native';
+import { FlatList, View, StyleSheet } from 'react-native';
 import BarMenuButton from '../components/BarMenuButton';
+import Colors from '../constants/Colors';
 
 const categories = [
   {
@@ -12,18 +13,19 @@ const categories = [
 
 export default function CategoryScreen() {
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <FlatList
         data={categories}
-        renderItem={
-          ({ item }) => <BarMenuButton
-                          title = {item.title}
-                          description = {item.description}
-                          iconName = {item.iconName} />
-        }
+        renderItem={({ item }) => (
+          <BarMenuButton
+            title = {item.title}
+            description = {item.description}
+            iconName = {item.iconName} 
+          />
+        )}
         keyExtractor = {item => item.title}
       />
-    </ScrollView>
+    </View>
   );
 }
 

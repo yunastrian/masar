@@ -3,7 +3,9 @@ import {
   StyleSheet,
   Text,
   TouchableHighlight,
+  View
 } from 'react-native';
+import Colors from '../constants/Colors';
 
 export default class TitleDescriptionButton extends React.Component {
   onPressButton = () => {
@@ -16,12 +18,14 @@ export default class TitleDescriptionButton extends React.Component {
         style={styles.container}
         onPress={this.onPressButton}
       >
-        <Text style={styles.titleText}>
-          {this.props.title}
-        </Text>
-        <Text style={styles.descriptionText}>
-          {this.props.description}
-        </Text>
+        <View>
+          <Text style={styles.titleText}>
+            {this.props.title}
+          </Text>
+          <Text style={styles.descriptionText}>
+            {this.props.description}
+          </Text>
+        </View>
       </TouchableHighlight>
     );
   }
@@ -29,7 +33,11 @@ export default class TitleDescriptionButton extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 5
+    paddingVertical: 10,
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderColor: Colors.lightGrey2,
+    paddingHorizontal: 15
   },
   titleText: {
     fontSize: 12,

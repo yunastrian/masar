@@ -1,27 +1,28 @@
 import React from 'react';
-import { Icon } from 'expo';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight
+  TouchableOpacity
 } from 'react-native';
 import Colors from '../constants/Colors';
 
 export default class IconTopButton extends React.Component {
   render() {
     return (
-      <TouchableHighlight 
+      <TouchableOpacity 
         onPress={()=>{}}
       >
         <View style={styles.containerButton}>
-          <Icon.Ionicons 
+          <Ionicons 
             name={this.props.iconName}
             style={styles.menuIcon}
+            size={30}
           />
           <Text style={styles.titleText}>{this.props.title}</Text>
         </View>
-      </TouchableHighlight>
+      </TouchableOpacity>
     );
   }
 }
@@ -29,22 +30,23 @@ export default class IconTopButton extends React.Component {
 const styles = StyleSheet.create({
   containerButton: {
     backgroundColor: Colors.white,
-    borderRadius: 5,
+    borderRadius: 10,
     elevation: 5,
     flexDirection: 'column',
     height: 70,
-    width: 80,
+    width: 160,
     padding: 5,
-    shadowColor: Colors.black,
-    shadowRadius: 5,
-    shadowOpacity: 0.5,
+    // shadowColor: Colors.black,
+    // shadowRadius: 5,
+    // shadowOpacity: 0.5,
+    justifyContent: 'center'
   },
   menuIcon: {
-    height: 40,
-    width: 40
+    alignSelf:"center"
   },
   titleText: {
-    fontSize: 12,
-    fontWeight: 'bold'
+    fontSize: 10,
+    fontWeight: 'bold',
+    alignSelf: "center"
   },
 })
